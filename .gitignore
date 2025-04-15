@@ -1,0 +1,95 @@
+### AL ###
+
+.vs/
+Inventario/.vs/
+Inventario/.vs/Inventario/
+
+#Template for AL projects for Dynamics 365 Business Central
+.vscode/
+.alcache/
+.alpackages/
+.snapshots/
+.output/
+*.app
+rad.json
+*.g.xlf
+*.flf
+TestResults.xml
+
+# Dependencies
+node_modules/
+packages/
+bower_components/
+
+# Build outputs
+bin/
+obj/
+dist/
+build/
+publish/
+[Dd]ebug/
+[Rr]elease/
+
+# IDE and Editor files
+.vs/
+.idea/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+*.userprefs
+.vscode/
+*.vsix
+
+# Temporary files
+*.log
+*.tmp
+*.temp
+*.bak
+*.cache
+*~
+*.swp
+
+# Compiled files
+*.com
+*.class
+*.dll
+*.exe
+*.pdb
+*.dll.config
+*.cache
+*.ilk
+*.ncb
+*.sdf
+*.ipch
+*.aps
+*.res
+*.pch
+*.obj
+*.idb
+*.tlog
+*.lastbuildstate
+*.vsidx
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Test Results
+TestResults/
+[Tt]est[Rr]esult*/
+*.trx
+*.coverage
+*.coveragexml
+
+# NuGet
+*.nupkg
+*.snupkg
+**/[Pp]ackages/*
+!**/[Pp]ackages/build/
+

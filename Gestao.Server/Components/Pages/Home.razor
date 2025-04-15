@@ -1,0 +1,24 @@
+﻿@page "/"
+@using Gestao.Server.Components.Pages
+@attribute [Authorize]
+@inherits PageBase
+@rendermode InteractiveServer
+
+<PageTitle>Painel</PageTitle>
+<div class="row">
+    <Totalizadores />
+    <AccountBalance />
+</div>
+
+<AccessLink />
+@code {
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            var company = await LocalStorage.GetItemAsync<Domain.Company>(AppConstants.LocalStorageCompany);
+            if (company is null)
+                NavigationManager.NavigateTo("/Company/List");
+        }
+    }
+}
