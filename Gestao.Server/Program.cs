@@ -101,8 +101,10 @@ builder.Services.AddScoped<CompanyOnSelectedNotification>();
 
 // Registra implementações dos repositórios
 builder.Services.AddScoped<IRepository<Account>, AccountRepository>();
+
 builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();  // Update this line
-builder.Services.AddScoped<IRepository<Company>, CompanyRepository>();
+builder.Services.AddScoped<ICompanyRepository, CompanyRepository>();
+
 builder.Services.AddScoped<IRepository<Document>, DocumentRepository>();
 builder.Services.AddScoped<IRepository<FinancialTransaction>, FinancialTransactionRepository>();
 
@@ -151,8 +153,17 @@ app.MapGet("/api/categories", async ([FromServices] ICategoryRepository reposito
     return Results.Ok(data);    
 });
 
-// Endpoint de Empresas - Obtém todas as empresas de um usuário
-app.MapGet("/api/companies", async (/*...*/) => { /*...*/ });
+
+// Fix the categories endpoint to use ICategoryRepository
+app.MapGet("/api/companies", async ([FromServices] ICompanyRepository repositoryCompany, 
+    [FromQuery] Guid applicationUserId, [FromQuery] int pageIndex, [FromQuery] string  searchWord) =>
+{
+    var data = await repositoryCompany.GetAll(applicationUserId, pageIndex, 10, "" );
+    return Results.Ok(data);
+
+
+});
+
 
 // Endpoint de Contas - Obtém todas as contas de uma empresa
 app.MapGet("/api/accounts", async (/*...*/) => { /*...*/ });

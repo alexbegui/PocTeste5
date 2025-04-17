@@ -1,10 +1,11 @@
 ﻿using Gestao.Client.Libraries.Utilities;
+using Gestao.Database.Interface;
 using Gestao.Domain;
 using Microsoft.EntityFrameworkCore;
 
 namespace Gestao.Database.Repositories
 {
-    public class CompanyRepository : Repository<Company>
+    public class CompanyRepository : Repository<Company> , ICompanyRepository
     {
         private readonly AppDbContext _db;
         
